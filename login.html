@@ -1,0 +1,4 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Admin login</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><main class="card"><h1>Results — Admin</h1><p class="sub">Enter the administrator password to view totals.</p>
+{% with messages = get_flashed_messages() %}{% if messages %}<div class="notice">{% for message in messages %}<p>{{ message }}</p>{% endfor %}</div>{% endif %}{% endwith %}
+<form method="post"><label for="password">Administrator password</label><input id="password" type="password" name="password" required><button type="submit">View results</button></form><a class="link" href="/">Voting page</a></main></body></html>

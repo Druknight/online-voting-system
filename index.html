@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online Voting</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><main class="card"><h1>🗳️ Online Voting</h1><p class="sub">Choose one candidate and submit your vote.</p>
+{% with messages = get_flashed_messages() %}{% if messages %}<div class="notice">{% for message in messages %}<p>{{ message }}</p>{% endfor %}</div>{% endif %}{% endwith %}
+<form method="post">
+<label for="voter_code">Your unique voting code</label><input id="voter_code" name="voter_code" required autocomplete="off" placeholder="Enter code from organizer">
+<fieldset><legend>Select one candidate</legend>
+{% for candidate in candidates %}<label class="option"><input type="radio" name="candidate" value="{{ candidate }}" required><span>{{ loop.index }}. {{ candidate }}</span></label>{% endfor %}
+</fieldset><button type="submit">Submit vote</button></form>
+<p class="small">Each valid voting code can be used once.</p></main></body></html>

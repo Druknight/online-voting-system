@@ -1,0 +1,4 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Voting results</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body><main class="card"><h1>Voting Results</h1><p class="sub">Total votes recorded: <strong>{{ total_votes }}</strong></p>
+{% for name, total in totals.items() %}<div class="result"><div><strong>{{ name }}</strong><span>{{ total }} vote(s)</span></div><div class="bar"><span style="width: {{ (total / total_votes * 100) if total_votes else 0 }}%"></span></div></div>{% endfor %}
+<a class="link" href="/logout">Log out</a></main></body></html>
